@@ -2,6 +2,11 @@
 
 **This repository is a curated list of SQL commands**
 
+**REFERENCE**
+__________________________________________________________________________________________________________________________________
+-[CODECADEMY](www.codecademy.com)
+-[BYTESCOUT](bytescout.com) 
+
 SQL, Structured Query Language, is a programming language designed to manage data stored in relational databases. SQL operates through simple, declarative statements. This keeps data accurate and secure, and it helps maintain the integrity of databases, regardless of size.
 
 
@@ -49,7 +54,7 @@ GROUP BY Age ORDER BY Name;
 
 
 
-### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)   Queries for Data Manipulation Using Math Functions 
+## ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)   Queries for Data Manipulation Using Math Functions 
 
 > There are a lot of built-in math functions like COUNT and AVG which provide basic functionalities of counting the number of results and averaging them respectively
 
@@ -174,10 +179,84 @@ FROM table_name
 WHERE column_name LIKE pattern;
 ```
 
+### 21. LIMIT 
+> LIMIT is a clause that lets you specify the maximum number of rows the result set will have.
+```
+SELECT column_name(s)
+FROM table_name
+LIMIT number;
+```
+
+### 22. MAX()
+> MAX() is a function that takes the name of a column as an argument and returns the largest value in that column.
+```
+SELECT MAX(column_name)
+FROM table_name;
+```
+
+### 23. MIN()
+> MIN() is a function that takes the name of a column as an argument and returns the smallest value in that column.
+```
+SELECT MIN(column_name)
+FROM table_name;
+```
+
+### 24. OR
+> OR is an operator that filters the result set to only include rows where either condition is true.
+```
+SELECT column_name
+FROM table_name
+WHERE column_name = value_1
+OR column_name = value_2;
+```
+
+### 25. OUTER JOIN
+> An outer join will combine rows from different tables even if the join condition is not met. Every row in the left table is returned in the result set, and if the join condition is not met, then NULL values are used to fill in the columns from the right table.
+```
+SELECT column_name(s)
+FROM table_1
+LEFT JOIN table_2
+  ON table_1.column_name = table_2.column_name;
+```
+
+### 26. ROUND 
+> ROUND() is a function that takes a column name and an integer as an argument. It rounds the values in the column to the number of decimal places specified by the integer.
+```
+SELECT ROUND(column_name, integer)
+FROM table_name;
+```
+
+### 27. SELECT DISTINCT
+> SELECT DISTINCT specifies that the statement is going to be a query that returns unique values in the specified column(s).
+```
+SELECT DISTINCT column_name
+FROM table_name;
+```
+
+### 28. UPDATE
+> UPDATE statements allow you to edit rows in a table.
+```
+UPDATE table_name
+SET some_column = some_value
+WHERE some_column = some_value;
+```
+
+### 29. WITH 
+> WITH clause lets you store the result of a query in a temporary table using an alias. You can also define multiple temporary tables using a comma and with one instance of the WITH keyword.
+The WITH clause is also known as common table expression (CTE) and subquery factoring.
+```
+WITH temporary_name AS (
+   SELECT *
+   FROM table_name)
+SELECT *
+FROM temporary_name
+WHERE column_name operator value;
+```
 
 
+## ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) Queries related to VIEW 
 
-### 9. Query for Creating a View
+### 30. Query for Creating a View
 > A view is a tailored table that is formed as a result of a query. It has tables and rows just like any other table. It’s usually a good idea to run queries as independent views because this allows them to be retrieved later to view the query results, rather than computing the same command every time for a particular set of results.
 
 ```
@@ -187,21 +266,80 @@ FROM STUDENT
 WHERE GPA > 40;
 ```
 
-### 10. Query for Listing all Views
+### 31. Query for Listing all Views
 > This query lists all the views available in the schema.
 
 `SELECT * FROM My_Schema.views;`
 
-### 11. Query for Listing all Views
+### 32. Query for Listing all Views
 > This query lists all the views available in the schema.
 
 `SELECT * FROM My_Schema.views;`
 
-### 12. Query for Updating a View
+### 33. Query for Updating a View
 > This query updates the view named ‘Product List’ – and if this view doesn’t exist, then the Product List view gets created as specified in this query.
 
-`CREATE OR REPLACE VIEW [ Product List] AS
+```CREATE OR REPLACE VIEW [ Product List] AS
  SELECT ProductID, ProductName, Category
  FROM Products
- WHERE Discontinued = No;`
+ WHERE Discontinued = No;
+ ```
+
+
+### 34.  Query for Dropping a View
+>This query will drop or delete a view named ‘V1’.
+
+`DROP VIEW V1;`
+
+
+### 35. Query to Display User Tables
+>A user-defined table is a representation of defined information in a table, and they can be used as arguments for procedures or user-defined functions. Because they’re so useful, it’s useful to keep track of them using the following query.
+
+`SELECT * FROM Sys.objects WHERE Type='u'`
+
+
+### 36. Query to Display Primary Keys
+> A primary key uniquely identifies all values within a table. The following query lists all the fields in a table’s primary key.
+
+`SELECT * from Sys.Objects WHERE Type='PK'`
+
+
+### 37. Query for Displaying Unique Keys
+>A Unique Key allows a column to ensure that all of its values are different.
+
+`SELECT * FROM Sys.Objects WHERE Type='uq'`
+
+
+### 38. Displaying Foreign Keys
+>Foreign keys link one table to another – they are attributes in one table which refer to the primary key of another table.
+
+`SELECT * FROM Sys.Objects WHERE Type='f'`
+
+
+### 39. Displaying Triggers
+>A Trigger is sort of an ‘event listener’ – i.e, it’s a pre-specified set of instructions that execute when a certain event occurs. The list of defined triggers can be viewed using the following query.
+
+`SELECT * FROM Sys.Objects WHERE Type='tr'`
+
+
+### 40. Displaying Internal Tables
+>Internal tables are formed as a by-product of a user-action and are usually not accessible. The data in internal tables cannot be manipulated; however, the metadata of the internal tables can be viewed using the following query.
+
+`SELECT * FROM Sys.Objects WHERE Type='it'`
+
+
+### 41. Displaying a List of Procedures
+> A stored procedure is a group of SQL queries that logically form a single unit and perform a particular task. Thus, using the following query you can keep track of them:
+
+`SELECT * FROM Sys.Objects WHERE Type='p'`
+
+
+# SQL Queries for Advanced Users!
+
+### 42. 
+
+
+
+
+
 
