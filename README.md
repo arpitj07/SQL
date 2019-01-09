@@ -1,11 +1,12 @@
 # SQL - [**This repository is a curated list of SQL commands**]
 
+**TABLE OF CONTENT**
+- [SQL queries for beginners users]()
+- [SQL queries for advanced users](https://github.com/arpitj07/SQL/blob/master/README.md#sql-queries-for-advanced-users)
+- []()
 
-##  REFERENCE
 
-- [CODECADEMY](www.codecademy.com)
-- [BYTESCOUT](bytescout.com) 
-
+## SQL queries for beginners users
 
 SQL, Structured Query Language, is a programming language designed to manage data stored in relational databases. SQL operates through simple, declarative statements. This keeps data accurate and secure, and it helps maintain the integrity of databases, regardless of size.
 
@@ -523,3 +524,9 @@ This line will return everything to the left of the second occurrence of â€œ. â€
 
 `<a href="http://www.bytescout.com">www.bytescout.com`
 
+
+
+##  REFERENCE
+
+- [CODECADEMY](www.codecademy.com)
+- [BYTESCOUT](bytescout.com) 
