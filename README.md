@@ -41,6 +41,12 @@ WHERE CITY = 'INDIANAPOLIS' ORDER BY EMP_ID asc;`
 `SELECT Name, Age FROM Patients WHERE Age > 40 
 GROUP BY Age ORDER BY Name;`
 
+```diff
+ + Queries for Data Manipulation Using Math Functions
+``` 
+> There are a lot of built-in math functions like COUNT and AVG which provide basic functionalities of counting the number of results and averaging them respectively
+
+
 ### 6.
 
 
