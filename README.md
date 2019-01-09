@@ -463,74 +463,63 @@ We can extend the functionality of the Primary Key so that it automatically incr
 
 `ID int NOT NULL AUTO_INCREMENT`
 
-35. Advanced Concepts For Improving Performance
-Whenever practical, is always better to write the column name list into a SELECT statement rather than using the * delimiter as a wildcard to select all columns. SQL Server has to do a search and replace operation to find all the columns in your table and write them into the statement for you (every time the SELECT is executed). For example:
+### 55. Advanced Concepts For Improving Performance
+> Whenever practical, is always better to write the column name list into a SELECT statement rather than using the * delimiter as a wildcard to select all columns. SQL Server has to do a search and replace operation to find all the columns in your table and write them into the statement for you (every time the SELECT is executed). For example:
 
-1
-SELECT * FROM Customers
+`SELECT * FROM Customers`
 Would actually execute much faster on our database as:
-
-1
-2
+```
 SELECT Name, Birthday, Phone, 
 Address, Zip FROM Customers
+```
 Performance pitfalls can be avoided in many ways. For example, avoid the time sinkhole of forcing SQL Server to check the system/master database every time by using only a stored procedure name, and never prefix it with SP_. Also setting NOCOUNT ON reduces the time required for SQL Server to count rows affected by INSERT, DELETE, and other commands. Using INNER JOIN with a condition is much faster than using WHERE clauses with conditions. We advise developers to learn SQL server queries to an advanced level for this purpose. For production purposes, these tips may be crucial to adequate performance. Notice that our tutorial examples tend to favor the INNER JOIN.
 
-36. Conditional Subquery Results
-The SQL operator EXISTS tests for the existence of records in a subquery and returns a value TRUE if a subquery returns one or more records. Have a look at this query with a subquery condition:
 
-1
-2
-3
+### 56. Conditional Subquery Results
+> The SQL operator EXISTS tests for the existence of records in a subquery and returns a value TRUE if a subquery returns one or more records. Have a look at this query with a subquery condition:
+
+```
 SELECT Name FROM Customers WHERE EXISTS 
 (SELECT Item FROM Orders 
 WHERE Customers.ID = Orders.ID AND Price < 50)
+```
 In this example above, the SELECT returns a value of TRUE when a customer has orders valued at less than $50.
 
-37. Copying Selections from Table to Table
-There are a hundred and one uses for this SQL tool. Suppose you want to archive your yearly Orders table into a larger archive table. This next example shows how to do it.
+### 57. Copying Selections from Table to Table
+> There are a hundred and one uses for this SQL tool. Suppose you want to archive your yearly Orders table into a larger archive table. This next example shows how to do it.
 
-1
-2
-3
+```
 INSERT INTO Yearly_Orders 
 SELECT * FROM Orders 
 WHERE Date<=1/1/2018
+```
 This example will add any records from the year 2018 to the archive.
 
-38. Catching NULL Results
-In cases where NULL values are allowed in a field, calculations on those values will produce NULL results as well. This can be avoided by use of the IFNULL operator. In this next example, a value of zero is returned rather than a value of NULL when the calculation encounters a field with NULL value:
+### 58. Catching NULL Results
+> In cases where NULL values are allowed in a field, calculations on those values will produce NULL results as well. This can be avoided by use of the IFNULL operator. In this next example, a value of zero is returned rather than a value of NULL when the calculation encounters a field with NULL value:
 
-1
-2
-3
+```
 SELECT Item, Price * 
 (QtyInStock + IFNULL(QtyOnOrder, 0)) 
 FROM Orders
-39. HAVING can be Relieving!
-The problem was that the SQL WHERE clause could not operate on aggregate functions. The problem was solved by using the HAVING clause. As an example, this next query fetches a list of customers by the region where there is at least one customer per region:
+```
 
-1
-2
-3
-4
-SELECT COUNT(ID), Region
+### 59. HAVING can be Relieving!
+>The problem was that the SQL WHERE clause could not operate on aggregate functions. The problem was solved by using the HAVING clause. As an example, this next query fetches a list of customers by the region where there is at least one customer per region:
+
+```
+2SELECT COUNT(ID), Region
 FROM Customers
 GROUP BY Region
-HAVING COUNT(ID) > 0;
-40. Tie things up with Strings!
-Let’s have a look at processing the contents of field data using functions. Substring is probably the most valuable of all built-in functions. It gives you some of the power of Regex, but it’s not so complicated as Regex. Suppose you want to find the substring left of the dots in a web address. Here’s how to do it with an SQL Select statement:
+HAVING COUNT(ID) > 0;`
+```
 
-1
-SELECT SUBSTRING_INDEX("www.bytescout.com", ".", 2);
+### 60. Tie things up with Strings!
+> Let’s have a look at processing the contents of field data using functions. Substring is probably the most valuable of all built-in functions. It gives you some of the power of Regex, but it’s not so complicated as Regex. Suppose you want to find the substring left of the dots in a web address. Here’s how to do it with an SQL Select statement:
+
+`SELECT SUBSTRING_INDEX("www.bytescout.com", ".", 2);`
+
 This line will return everything to the left of the second occurrence of “. ” and so, in this case, it will return
 
-1
-<a href="http://www.bytescout.com">www.bytescout.com
-
-
-
-
-
-
+`<a href="http://www.bytescout.com">www.bytescout.com`
 
