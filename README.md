@@ -1,9 +1,9 @@
 # SQL - [**This repository is a curated list of SQL commands**]
 
 **TABLE OF CONTENT**
-- [SQL queries for beginners users]()
+- [SQL queries for beginners users](https://github.com/arpitj07/SQL/blob/master/README.md#sql-queries-for-beginners-users)
 - [SQL queries for advanced users](https://github.com/arpitj07/SQL/blob/master/README.md#sql-queries-for-advanced-users)
-- []()
+- [Reference](https://github.com/arpitj07/SQL/blob/master/README.md#reference)
 
 
 ## SQL queries for beginners users
