@@ -28,13 +28,11 @@ SQL, Structured Query Language, is a programming language designed to manage dat
 > This query orders the results with respect to the attribute which is referenced to using “Order By” – so for example, if that attribute is an integer data type, then the result would either be sorted in ascending or descending order; likewise, if the data type is a String then the result would be ordered in alphabetical order.
 
 `SELECT EMP_ID, LAST_NAME FROM EMPLOYEE
-
 WHERE CITY = 'Seattle' ORDER BY EMP_ID;`
 
 > The ordering of the result can also be set manually, using “asc ” for ascending and “desc” for descending.
 
 `SELECT EMP_ID, LAST_NAME FROM EMPLOYEE_TBL
-
 WHERE CITY = 'INDIANAPOLIS' ORDER BY EMP_ID asc;`
 
 ### 5.Query for Outputting Sorted Data Using ‘Group By’
@@ -42,6 +40,8 @@ WHERE CITY = 'INDIANAPOLIS' ORDER BY EMP_ID asc;`
 
 `SELECT Name, Age FROM Patients WHERE Age > 40 
 GROUP BY Age ORDER BY Name;`
+
+
 
 
 
@@ -85,18 +85,23 @@ AND column_2 = value_2;`
 `SELECT column_name AS 'Alias'
 FROM table_name;`
 
-### 12. AVG
-> AVG() is an aggregate function that returns the average value for a numeric column.
-
-`SELECT AVG(column_name)
-FROM table_name;`
-
-### 13. BETWEEN
+### 12. BETWEEN
 > The BETWEEN operator is used to filter the result set within a certain range. The values can be numbers, text or dates.
 
 `SELECT column_name(s)
 FROM table_name
 WHERE column_name BETWEEN value_1 AND value_2;`
+
+### 13. CASE 
+> CASE statements are used to create different outputs (usually in the SELECT statement). It is SQL's way of handling if-then logic.
+`SELECT column_name,
+  CASE
+    WHEN condition THEN 'Result_1'
+    WHEN condition THEN 'Result_2'
+    ELSE 'Result_3'
+  END
+FROM table_name;
+`
 
 
 ### 9. Query for Creating a View
