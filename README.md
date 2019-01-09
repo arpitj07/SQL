@@ -1,12 +1,12 @@
 # SQL - [**This repository is a curated list of SQL commands**]
 
 **TABLE OF CONTENT**
-- [SQL queries for beginners users](https://github.com/arpitj07/SQL/blob/master/README.md#sql-queries-for-beginners-users)
+- [SQL queries for beginners](https://github.com/arpitj07/SQL/blob/master/README.md#sql-queries-for-beginners)
 - [SQL queries for advanced users](https://github.com/arpitj07/SQL/blob/master/README.md#sql-queries-for-advanced-users)
 - [Reference](https://github.com/arpitj07/SQL/blob/master/README.md#reference)
 
 
-## SQL queries for beginners users
+## SQL queries for beginners
 
 SQL, Structured Query Language, is a programming language designed to manage data stored in relational databases. SQL operates through simple, declarative statements. This keeps data accurate and secure, and it helps maintain the integrity of databases, regardless of size.
 
